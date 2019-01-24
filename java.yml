@@ -1,0 +1,20 @@
+
+---
+  - hosts: all
+    become: yes
+    tasks:
+      - name: installing java
+        apt_repository:
+           repo: 'ppa:webupd8team/java'
+           state: present
+           update_cache: yes
+      - name: Accept Java 8 License
+        become: yes
+        debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='boolean'
+
+      - name: installing java8
+        become: yes
+        apt:
+          name:  oracle-java8-installer
+          state: present
+          update_cache: yes
