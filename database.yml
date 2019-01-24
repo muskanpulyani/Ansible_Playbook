@@ -1,0 +1,9 @@
+---
+  - hosts: all
+    become: true
+    tasks:
+      - name: installing database
+        apt:
+          name: mysql-client
+          state: present
+          update_cache: yes

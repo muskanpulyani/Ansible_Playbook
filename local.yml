@@ -1,0 +1,9 @@
+---
+  - hosts: all
+    become: yes
+    tasks:
+      - name: copying  to remote  location
+        copy:
+          src: /home/muskan_pulyani/my.sh
+          dest: /home/muskan_pulyani/muskan/
+ 
